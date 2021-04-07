@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, navigate } from '@reach/router';
+import { Link } from '@reach/router';
 import axios from 'axios';
 import * as Icon from 'react-bootstrap-icons'
-import logo from '../logo.PNG'
+import logo from '../images/logo.PNG'
 
 
 const Collections = (props) => {
@@ -30,7 +30,7 @@ const Collections = (props) => {
                     <p className="text-black-50 border-bottom text-center m-3 "><Link to="/collection/5" style={{color : "#212529"}}>Retro Cam</Link></p>
                 </div>
                 <div className="mt-4">
-                    <p className="text-black-50 border-bottom text-center m-3 ">About</p>
+                    <p className="text-black-50 border-bottom text-center m-3 "><Link to="/about" style={{color : "#212529"}}>About</Link></p>
                     <p className="text-black-50 border-bottom text-center m-3 ">Contact</p>
                     <p className="text-black-50 border-bottom text-center m-3 ">Services</p>
                 </div>

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link, Router } from '@reach/router';
+import { Router } from '@reach/router';
 import Home from './components/Home'
 import './App.css';
-import Collections from './components/Collections'
+import Collections from './components/Collections';
+import About from './components/About';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Router>
         <Home path = "/" />
         <Collections path="/collection/:id" />
+        <About path="/about" />
       </Router>
     </div>
   );

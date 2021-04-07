@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link, navigate } from '@reach/router';
+import { Link } from '@reach/router';
 import axios from 'axios';
 import * as Icon from 'react-bootstrap-icons'
-import logo from '../2.PNG'
+import logo from '../images/2.PNG'
+import SECRET from './.Any';
 
 const Home = () => {
     const [image, setImage] = useState({})
     
 
     useEffect(() => {
-        axios.get("https://api.unsplash.com/collections/1/photos?client_id=6Y-8Vx4t2UBk9mdLKOV_nRJfn9axULuN0ingbXwYlv0")
+        console.log("axios fetched")
+        console.log(process.env.SECRET)
+        axios.get(`https://api.unsplash.com/collections/1/photos?client_id=${SECRET}`)
             .then((res) => {
                 console.log("fetched?")
                 console.log(res.data)

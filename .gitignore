@@ -5,6 +5,8 @@ node_modules/
 .pnp/
 .pnp.js
 
+./client/src/components/Any.js
+.Any.js
 # testing
 coverage/
 

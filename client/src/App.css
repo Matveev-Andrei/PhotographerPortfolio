@@ -4,3 +4,11 @@
     position: sticky;
     top: 10px;
 }
+
+html{
+    background-color: bisque;
+}
+
+.image-upload>input {
+    display: none;
+}

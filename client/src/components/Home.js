@@ -3,16 +3,14 @@ import { Link } from '@reach/router';
 import axios from 'axios';
 import * as Icon from 'react-bootstrap-icons'
 import logo from '../images/2.PNG'
-import SECRET from './.Any';
+import acc from './.Any';
 
 const Home = () => {
     const [image, setImage] = useState({})
     
 
     useEffect(() => {
-        console.log("axios fetched")
-        console.log(process.env.SECRET)
-        axios.get(`https://api.unsplash.com/collections/1/photos?client_id=${SECRET}`)
+        axios.get(`https://api.unsplash.com/collections/1/photos?client_id=${acc.unsplash}`)
             .then((res) => {
                 console.log("fetched?")
                 console.log(res.data)
@@ -23,6 +21,23 @@ const Home = () => {
             .catch((err) => console.log(err))
     }, [])
 
+    const hoverNav = (e) =>{
+        console.log(e.target)
+        e.target.style.color = 'black';
+        e.target.style.backgroundColor = 'white';
+        
+    }
+    const unHoverNav = (e) => {
+        e.target.style.color = 'white';
+        e.target.style.backgroundColor = 'transparent';
+    }
+    const hoverCategories = (e) => {
+        e.target.style.borderBottom = "solid 1px white";
+    }
+    const unHoverCategories = (e) => {
+        e.target.style.borderBottom = "solid 1px rgba(255,255,255,.2)";
+    }
+    
     return (
         <div
             style={{
@@ -42,19 +57,24 @@ const Home = () => {
                     </div>
                     <ul>
                         
-                        <a className="m-3 p-3 border border-white text-white text-decoration-none" href="tel:5714561234">(571) 456-1234</a>
-                        <a className="m-3 p-3 border border-white text-white text-decoration-none" href="mailto:matveeddev@gmail.com">matveevdev@gmail.com</a>
+                        <a onMouseLeave={(e) => unHoverNav(e)} onMouseEnter={(e) => hoverNav(e)} className="m-3 p-3 border border-white text-decoration-none" style={{color : 'white'}} href="tel:5714561234">(571) 456-1234</a>
+                        <a onMouseLeave={(e) => unHoverNav(e)} onMouseEnter={(e) => hoverNav(e)} className="m-3 p-3 border border-white text-decoration-none" style={{color : 'white'}} href="mailto:matveevdev@gmail.com">matveevdev@gmail.com</a>
                     </ul>
                 </div>
             </header>
-            <main className="d-flex m-5 justify-content-center p-5">
-                <div className="m-5">
-                    <div className="m-5">
-                        <h4 className="text-center m-3 "><Link to="/collection/6" style={{color : "white", textDecoration: "none", borderBottom: "solid 1px rgba(255,255,255,.2)"}}>Destinations</Link></h4>
-                        <h4 className="text-center m-3 "><Link to="/collection/2" style={{color : "white", textDecoration: "none", borderBottom: "solid 1px rgba(255,255,255,.2)"}}>Nature</Link></h4>
-                        <h4 className="text-center m-3 "><Link to="/collection/4" style={{color : "white", textDecoration: "none", borderBottom: "solid 1px rgba(255,255,255,.2)"}}>Sierra</Link></h4>
-                        <h4 className="text-center m-3 "><Link to="/collection/5" style={{color : "white", textDecoration: "none", borderBottom: "solid 1px rgba(255,255,255,.2)"}}>Retro Cam</Link></h4>
+            <main className="d-flex m-2 justify-content-center ">
+                <div className="mb-3 pb-5">
+                    <div className="mb-4">
+                        <h4 className="text-center m-3 "><Link onMouseLeave={(e) => unHoverCategories(e)} onMouseEnter={(e) => hoverCategories(e)} to="/collection/6" style={{color : "white", textDecoration: "none", borderBottom: "solid 1px rgba(255,255,255,.2)"}}>Destinations</Link></h4>
+                        <h4 className="text-center m-3 "><Link onMouseLeave={(e) => unHoverCategories(e)} onMouseEnter={(e) => hoverCategories(e)} to="/collection/2" style={{color : "white", textDecoration: "none", borderBottom: "solid 1px rgba(255,255,255,.2)"}}>Nature</Link></h4>
+                        <h4 className="text-center m-3 "><Link onMouseLeave={(e) => unHoverCategories(e)} onMouseEnter={(e) => hoverCategories(e)} to="/collection/4" style={{color : "white", textDecoration: "none", borderBottom: "solid 1px rgba(255,255,255,.2)"}}>Sierra</Link></h4>
+                        <h4 className="text-center m-3 "><Link onMouseLeave={(e) => unHoverCategories(e)} onMouseEnter={(e) => hoverCategories(e)} to="/collection/5" style={{color : "white", textDecoration: "none", borderBottom: "solid 1px rgba(255,255,255,.2)"}}>Retro Cam</Link></h4>
                     </div>
+                    <hr className="w-100 m-1 align-self-center ml-1" style={{ border: "1px solid rgba(255,255,255,.2)" }}/>
+                    <div className="mb-3">
+                        <h4  className="text-center m-3 "><Link onMouseLeave={(e) => unHoverCategories(e)} onMouseEnter={(e) => hoverCategories(e)} to="/about" style={{color : "white", textDecoration: "none", borderBottom: "solid 1px rgba(255,255,255,.2)"}}>About</Link></h4>
+                        <h4  className="text-center m-3 "><Link onMouseLeave={(e) => unHoverCategories(e)} onMouseEnter={(e) => hoverCategories(e)} to="/contact" style={{color : "white", textDecoration: "none", borderBottom: "solid 1px rgba(255,255,255,.2)"}}>Contact</Link></h4>
+                        <h4  className="text-center m-3 "><Link onMouseLeave={(e) => unHoverCategories(e)} onMouseEnter={(e) => hoverCategories(e)} to="/services" style={{color : "white", textDecoration: "none", borderBottom: "solid 1px rgba(255,255,255,.2)"}}>Services</Link></h4>                    </div>
                 </div>
             </main>
         </div>
